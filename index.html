@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IP Viewer</title>
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+            background: #f2f2f2;
+        }
+        .box{
+            background: white;
+            padding: 30px;
+            display: inline-block;
+            border-radius: 10px;
+        }
+        .ip{
+            font-size: 25px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Your IP Address</h1>
+    <div class="ip" id="ip">Loading...</div>
+</div>
+
+<script>
+fetch('https://api.ipify.org?format=json')
+.then(response => response.json())
+.then(data => {
+    document.getElementById('ip').innerText = data.ip;
+});
+</script>
+
+</body>
+</html>
